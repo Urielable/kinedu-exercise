@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   namespace :api, defaults: {format: :json} do
     namespace :v1 do
       resources :activities, only: [:index]
-      resources :babies, only: [:index]
+      resources :babies, only: [:index] do
+        resources :activity_logs, only:[:index,:create,:update]
+      end
     end
   end
   

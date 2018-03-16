@@ -1,5 +1,7 @@
 class Baby < ApplicationRecord
 
+    has_many :activity_logs
+
     #property
     def months
         today = Date.today
