@@ -9,5 +9,9 @@ Rails.application.routes.draw do
       end
     end
   end
+
+  namespace :admin do
+    resources :activity_logs, only: [:index]
+  end
   
 end
