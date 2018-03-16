@@ -15,7 +15,7 @@ class Api::V1::ActivityLogsController < ApiController
         if log.save
             render json: log, status: :created
         else
-
+            render :json => { :errors => log.errors.full_messages }, status: :bad_request
         end
     end
 
