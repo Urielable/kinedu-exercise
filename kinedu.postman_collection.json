@@ -1,0 +1,191 @@
+{
+	"info": {
+		"name": "kinedu",
+		"_postman_id": "f36c8e6d-43e2-bab0-cb63-7b29a2b301c7",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "List Babies",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{host}}/api/v1/babies",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"babies"
+					]
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "List Activities",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{host}}/api/v1/activities",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"activities"
+					]
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "List Assistants",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{host}}/api/v1/assistants",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"assistants"
+					]
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "List Activities Logs",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{host}}/api/v1/babies/43/activity_logs",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"babies",
+						"43",
+						"activity_logs"
+					]
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "Create Activity Log",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"activity_log\": {\n    \"assistant_id\": 5,\n    \"activity_id\": 3,\n    \"start_time\":\"2018-03-17 11:30\"\n  }\n}"
+				},
+				"url": {
+					"raw": "{{host}}/api/v1/babies/43/activity_logs",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"babies",
+						"43",
+						"activity_logs"
+					]
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "Update Activity Log",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"activity_log\": {\n    \"stop_time\":\"2018-03-17 10:30\"\n  }\n}"
+				},
+				"url": {
+					"raw": "{{host}}/api/v1/babies/43/activity_logs/106",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"babies",
+						"43",
+						"activity_logs",
+						"106"
+					]
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Activity Log",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{host}}/api/v1/babies/43/activity_logs/102",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"babies",
+						"43",
+						"activity_logs",
+						"102"
+					]
+				},
+				"description": null
+			},
+			"response": []
+		}
+	]
+}
