@@ -1,0 +1,60 @@
+<div class="container">
+    <div class="row">
+        <h2>Log de actividades</h2>
+    </div>
+    <div class="row">
+        <%= form_tag("", method: "get", class:"form-inline") do %>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label for="">Bebes</label>
+                    <%= collection_select(nil,:baby, @babies, :id, :name,{include_blank:'Todos'}, {class: "form-control"}) %>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="">Asistentes</label>
+                    <%= collection_select(nil, :assistant, @assistants, :id, :name,{include_blank: 'Todos'}, {class: "form-control"}) %>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="">Estatus</label>
+                    <%= select(nil, :status, ActivityLog::STATUS,{include_blank: 'Todos'}, {class: "form-control"}) %>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <button class="btn btn-primary">Filtrar</button>
+                </div>
+            </div>
+        <% end %>
+    </div>
+    <br>
+    <div class="row">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Bebe</th>
+                    <th>Asistente</th>
+                    <th>Actividad</th>
+                    <th>inicio</th>
+                    <th>Estatus</th>
+                    <th>Duracion</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @activity_logs.each do |activity_log| %>
+                    <tr>
+                        <th><%= activity_log.baby.name%></th>
+                        <th><%= activity_log.assistant.name%></th>
+                        <th><%= activity_log.activity.name%></th>
+                        <th><%= time_format(activity_log.start_time)%></th>
+                        <th><%= activity_log.status%></th>
+                        <th><%= activity_log.diff_in_minutes%></th>
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
+</div>
