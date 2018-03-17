@@ -1,0 +1,21 @@
+es:
+  activerecord:
+    errors:
+      models:
+        activity_log:
+          attributes: 
+            activity:
+              required: "La actividad es requerida"
+            activity_id:
+              blank: "La actividad no puede ir en blanco"
+            baby:
+              required: "El bebe es requerido"
+            baby_id:
+              blank: "El bebe no puede ir en blanco"
+            assistant:
+              required: "El Asistente es requerido"
+            assistant_id:
+              blank: "El asistente no puede ir en blanco"
+  in_progress: "En progreso"
+  finished: "Terminada"
+      

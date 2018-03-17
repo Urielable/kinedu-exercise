@@ -1,7 +1,7 @@
 class ActivityLog < ApplicationRecord
 
-    IN_PROGRESS = "En progreso"
-    FINISHED = "Terminada"
+    IN_PROGRESS = I18n.t 'in_progress'
+    FINISHED = I18n.t 'finished'
     NOT_FINISHED = "*"
     MINUTES = 60
     STATUS = [IN_PROGRESS,FINISHED]
@@ -14,6 +14,11 @@ class ActivityLog < ApplicationRecord
     belongs_to :baby
     belongs_to :assistant
     belongs_to :activity
+
+    validates :baby_id, presence: true
+    validates :assistant_id, presence: true
+    validates :activity_id, presence: true
+    validates :start_time, presence: true
 
     validate :validate_stop_time, on: :update
 
