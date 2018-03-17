@@ -18,4 +18,5 @@ es:
               blank: "El asistente no puede ir en blanco"
   in_progress: "En progreso"
   finished: "Terminada"
+  validate_stop_time: "La finalizacion no puede ser antes que la fecha de inicio"
       

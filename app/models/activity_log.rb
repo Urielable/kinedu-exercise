@@ -48,7 +48,7 @@ class ActivityLog < ApplicationRecord
     def validate_stop_time
         if self.stop_time.present?
             if self.stop_time <= self.start_time
-                errors.add(:activity_log,"stop_time cannot be earlier than the start_time")
+                errors.add(:activity_log,I18n.t('validate_stop_time'))
             end
         end
     end
