@@ -181,6 +181,13 @@ route: '/users/sign_in'
 METHOD: PUT
 
 ```
+
+#### Instrucciones para desarrollo local con Docker
+
+```sh
+$ docker-compose build
+$ docker-compose up
+```
 ### Extras
 
 * Pagiaciòn de administrador
