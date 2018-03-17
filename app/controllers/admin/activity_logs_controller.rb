@@ -1,7 +1,7 @@
 class Admin::ActivityLogsController < ApplicationController
     
     def index
-        @activity_logs = ActivityLog.order(start_time: :desc)
+        @activity_logs = ActivityLog.order(start_time: :desc).page params[:page]
         filtering_params(params).each do |key, value|
             @activity_logs = @activity_logs.public_send(key, value) if value.present?
         end

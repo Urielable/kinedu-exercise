@@ -6,15 +6,26 @@ class ActivityLog < ApplicationRecord
     MINUTES = 60
     STATUS = [IN_PROGRESS,FINISHED]
 
-    scope :status, -> (status) { select{ |log| log.status == status} }
     scope :baby, -> (baby_id) { where baby_id: baby_id }
     scope :assistant, -> (assistant_id) { where assistant_id: assistant_id}
+    scope :finished, -> { where.not(stop_time: nil)}
+    scope :in_progress, -> { where(stop_time: nil)}
 
     belongs_to :baby
     belongs_to :assistant
     belongs_to :activity
-    
+
     validate :validate_stop_time, on: :update
+
+    paginates_per 10
+
+    class << self
+        def status(status)
+            queryset = self.in_progress if status == IN_PROGRESS
+            queryset = self.finished if status == FINISHED
+            queryset
+        end
+    end
 
     def status
         stop_time.present? ? FINISHED : IN_PROGRESS
