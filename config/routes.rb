@@ -1,12 +1,15 @@
 Rails.application.routes.draw do
+  devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  
 
   namespace :api, defaults: {format: :json} do
     namespace :v1 do
       resources :activities, only: [:index]
       resources :assistants, only: [:index]
       resources :babies, only: [:index] do
-        resources :activity_logs, only:[:index,:create,:update]
+        resources :activity_logs, only:[:index,:create,:update,:destroy]
       end
     end
   end
@@ -14,5 +17,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :activity_logs, only: [:index]
   end
+
+  root to: "welcome#index"
   
 end

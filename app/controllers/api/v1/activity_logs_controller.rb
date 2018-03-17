@@ -1,7 +1,7 @@
 class Api::V1::ActivityLogsController < ApiController
 
     before_filter :set_baby, only:[:create,:index]
-    before_filter :set_activity_log, only:[:update]
+    before_filter :set_activity_log, only:[:update,:destroy]
 
     
     def index
@@ -22,6 +22,14 @@ class Api::V1::ActivityLogsController < ApiController
     def update
         if @activity_log.update(activity_logs_params)
             render json: @activity_log, status: :ok
+        else
+            render :json => { :errors => @activity_log.errors.full_messages }, status: :bad_request
+        end
+    end
+
+    def destroy
+        if @activity_log.destroy
+            render json: {msg: 'record deleted'}, status: :ok
         else
             render :json => { :errors => @activity_log.errors.full_messages }, status: :bad_request
         end

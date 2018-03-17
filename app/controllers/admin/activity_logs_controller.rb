@@ -1,4 +1,5 @@
 class Admin::ActivityLogsController < ApplicationController
+    before_action :authenticate_user!
     
     def index
         @activity_logs = ActivityLog.order(start_time: :desc).page params[:page]
@@ -9,6 +10,9 @@ class Admin::ActivityLogsController < ApplicationController
         @assistants = Assistant.all.order(:name)
         
     end
+
+
+    
 
     private
 

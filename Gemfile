@@ -25,8 +25,10 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 # Complete validation of dates, times and datetimes for Rails 4.x and ActiveModel.
 gem 'validates_timeliness', '~> 4.0'
-# will_paginate is a pagination library that integrates with Ruby on Rails
+# A Scope & Engine based, clean, powerful, customizable and sophisticated paginator
 gem 'kaminari'
+# Devise is a flexible authentication solution for Rails based on Warden
+gem 'devise'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
